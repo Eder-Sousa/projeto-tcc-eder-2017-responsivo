@@ -1,0 +1,65 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<h:form>
+	<nav class="aw-menu">		
+		<ul>
+			<li>
+				<p:commandLink action="/admin/principal" ajax="false"
+					rendered="#{request.isUserInRole('ROLE_ADMINISTRADOR')}" title="Usuários">
+					<i class="fa  fa-fw  fa-user"></i>Usuários</p:commandLink>
+			</li>
+			<li>
+				<p:commandLink action="/restrito/turma_lista" ajax="false"
+					rendered="#{request.isUserInRole('ROLE_ADMINISTRADOR') || request.isUserInRole('ROLE_PROFESSOR')}" title="Turmas">
+					<i class="fa  fa-fw  fa-users"></i>Turmas</p:commandLink>
+			</li>
+			<li>
+				<p:commandLink action="/restrito/curso_lista" title="Cursos" ajax="false"
+					rendered="#{request.isUserInRole('ROLE_ADMINISTRADOR') || request.isUserInRole('ROLE_PROFESSOR')}">
+					<i class="fa  fa-fw  fa-book"></i>Cursos</p:commandLink>
+			</li>
+			<li>
+				<p:commandLink action="/restrito/disciplina_lista" ajax="false"
+					rendered="#{request.isUserInRole('ROLE_ADMINISTRADOR') || request.isUserInRole('ROLE_PROFESSOR')
+						 || request.isUserInRole('ROLE_ALUNO')}" title="Disciplinas">
+					<i class="fa  fa-fw  fa-file-text-o"></i>Disciplinas</p:commandLink>
+			</li>
+			<li>
+				<p:commandLink action="/restrito/aluno_lista" ajax="false"
+					rendered="#{request.isUserInRole('ROLE_ADMINISTRADOR') || request.isUserInRole('ROLE_PROFESSOR')}" title="Alunos">
+					<i class="fa  fa-fw  fa-graduation-cap"></i>Alunos</p:commandLink>
+			</li>
+			<li>
+				<p:commandLink action="/restrito/professor_lista" ajax="false"
+					rendered="#{request.isUserInRole('ROLE_ADMINISTRADOR') || request.isUserInRole('ROLE_PROFESSOR')}" title="Professores">
+					<i class="fa  fa-fw  fa-university"></i>Professores</p:commandLink>
+			</li>
+			<li>
+				<p:commandLink action="/restrito/nota_lista" ajax="false"
+					rendered="#{request.isUserInRole('ROLE_ADMINISTRADOR') || request.isUserInRole('ROLE_PROFESSOR')
+						 || request.isUserInRole('ROLE_ALUNO')}" title="Notas">
+					<i class="fa  fa-fw  fa-file-text"></i>Notas</p:commandLink>
+			</li>
+			<li>
+				<p:commandLink action="/restrito/material_apoio" ajax="false"
+					rendered="#{request.isUserInRole('ROLE_ADMINISTRADOR') || request.isUserInRole('ROLE_PROFESSOR')
+						 || request.isUserInRole('ROLE_ALUNO')}" title="Material de apoio">
+					<i class="fa  fa-fw  fa-file-pdf-o"></i>Material de apoio</p:commandLink>
+			</li>
+			<li>
+				<p:commandLink action="/restrito/email" ajax="false"
+					rendered="#{request.isUserInRole('ROLE_ADMINISTRADOR') || request.isUserInRole('ROLE_PROFESSOR')}"
+					title="E-mail">
+					<i class="fa  fa-fw  fa-envelope-o"></i>E-mail</p:commandLink>
+			</li>
+			<li>
+				<p:commandLink onclick="if (confirm('Deseja fazer LOGOUT no portal?')) return document.location='#{request.contextPath}/j_spring_security_logout';" title="Sair">
+					<i class="fa  fa-fw  fa-sign-out"></i>Sair</p:commandLink>
+			</li>
+		</ul>
+	</nav>
+	</h:form>
+	
+</ui:composition>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context reloadable="true" >
+	<Resource name="jdbc/TccDB"
+		auth="Container"
+		type="javax.sql.DataSource"
+		maxActive="100"
+		maxIdle="30"
+		maxWait="10000"
+		username="root"
+		password="root"
+		driverClassName="com.mysql.jdbc.Driver"
+		url="jdbc:mysql://localhost:3306/tcceder?autoReconnect=true" />
+		
+	<!-- <Resource name="jdbc/TccDB"
+		auth="Container"
+		type="javax.sql.DataSource"
+		maxActive="100"
+		maxIdle="30"
+		maxWait="10000"
+		username="root"
+		password="XFYrqe21376"
+		driverClassName="com.mysql.jdbc.Driver"
+		url="jdbc:mysql://node146082-eder-tcc-web.jelasticlw.com.br/tcc_eder?autoReconnect=true" /> -->
+		
+</Context>
